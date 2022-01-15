@@ -38,11 +38,10 @@ std::unique_ptr<Account> jamipp::getAccountById(const std::string& jami_id)
     return nullptr;
 }
 
-[[nodiscard]]
-std::string jamipp::newAccount(const std::string& alias, const std::string& password)
+std::string jamipp::newAccount(const std::string& display_name, const std::string& password)
 {
     std::map<std::string, std::string> details;
-    details["Account.displayName"] = alias;
+    details["Account.displayName"] = display_name;
     details["Account.type"] = "RING";
     details["Account.archivePassword"] = password;
     auto account_id = configuration_manager_->addAccount(details);

@@ -14,7 +14,7 @@ public:
     Account(const std::string& account_id, const std::string& jami_id);
     ~Account();
 
-    const std::string& alias() const { return alias_; };
+    const std::string& displayName() const { return display_name_; };
 
     // Active functions
     void sendMessage(const std::string& conversationId, const std::string& message);
@@ -34,7 +34,7 @@ public:
 protected:
     std::string account_id_;
     std::string jami_id_;
-    std::string alias_;
+    std::string display_name_;
     std::function<void(const std::string&)> conversation_start_handler_;
     std::function<void(Message::Ptr)> message_handler_;
     std::function<void(Message::Ptr)> non_command_handler_;

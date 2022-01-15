@@ -9,7 +9,7 @@ Account::Account(const std::string& account_id, const std::string& jami_id)
 {
     configuration_manager_->registerHandler(account_id, this);
     auto detail = configuration_manager_->getAccountDetails(account_id);
-    alias_ = detail["Account.alias"];
+    display_name_ = detail["Account.displayName"];
 }
 
 Account::~Account()
@@ -32,6 +32,7 @@ void Account::sendFile(const std::string& conversationId, const std::string& fil
 void Account::setDisplayName(const std::string& name)
 {
     configuration_manager_->setAccountDetails(account_id_, {{"Account.displayName", name}});
+    display_name_ = name;
 }
 
 void Account::handleMessageRecivedEvent(Message::Ptr message)
