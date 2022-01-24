@@ -20,6 +20,7 @@ public:
     void sendMessage(const std::string& conversationId, const std::string& message);
     void sendFile(const std::string& conversationId, const std::string& file_path, std::string disp_name);
     void setDisplayName(const std::string& name);
+    bool removeConversation(const std::string& conversation_id);
 
     // Event handlers
     void onAnyMessage(std::function<void(Message::Ptr)> handler);

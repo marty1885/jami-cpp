@@ -35,6 +35,11 @@ void Account::setDisplayName(const std::string& name)
     display_name_ = name;
 }
 
+bool Account::removeConversation(const std::string& conversation_id)
+{
+    return configuration_manager_->removeConversation(account_id_, conversation_id);
+}
+
 void Account::handleMessageRecivedEvent(Message::Ptr message)
 {
     if(message->author == jami_id_)
